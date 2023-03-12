@@ -8,7 +8,7 @@ import face4 from 'assets/images/face-male-4.jpg'
 import 'story.css'
 
 export default {
-    title: 'Avatar',
+    title: 'UI组件/Avatar',
     component: Avatar,
 }
 
