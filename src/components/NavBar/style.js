@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled from 'styled-components';
+import StyledAvatar, { StatusIcon } from 'components/Avatar/style'
+import styled from 'styled-components'
 import { activeBar } from 'utils/mixins'
 
 const StyleMenuItem = styled.div`
@@ -20,7 +21,28 @@ const MenuIcon = styled(FontAwesomeIcon)`
     opacity: ${({ active }) => (active ? 1 : 0.3)};
 `
 
-const StyledNavBar = styled.div``;
+const StyledNavBar = styled.nav`
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    width: 100px;
+    height: 100vh;
+    background-color:${({ theme }) => theme.darkPurple};
+    padding:30px 0;
+
+    ${StyledAvatar} {
+        justify-self: center;
+        ${StatusIcon} {
+            &::before {
+                background-color:${({ theme }) => theme.darkPurple};
+            }
+        }
+    }
+`
+
+const MenuItems = styled.div`
+    display: grid;
+    grid-template-rows: repeat(5, minmax(auto, 88px)) 1fr;
+`
 
 export default StyledNavBar
-export { StyleMenuItem, MenuIcon }
+export { StyleMenuItem, MenuIcon, MenuItems }

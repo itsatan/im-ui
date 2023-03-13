@@ -1,12 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import StyledNavBar, { MenuIcon, StyleMenuItem } from './style'
+import StyledNavBar, { MenuIcon, MenuItems, StyleMenuItem } from './style'
 import Badge from 'components/Badge'
+import Avatar from 'components/Avatar'
+import profileImage from 'assets/images/face-male-1.jpg'
+import { faCog, faCommentDots, faEllipsisH, faFolder, faStickyNote, faUsers } from '@fortawesome/free-solid-svg-icons'
+import "styled-components/macro"
 
-function NavBar ({ children, ...rest }) {
+function NavBar ({ ...rest }) {
     return (
         <StyledNavBar {...rest}>
-            {children}
+            <Avatar src={profileImage} status="online" />
+            <MenuItems>
+                <MenuItem showBadge active icon={faCommentDots} />
+                <MenuItem icon={faUsers} />
+                <MenuItem icon={faFolder} />
+                <MenuItem icon={faStickyNote} />
+                <MenuItem icon={faEllipsisH} />
+                <MenuItem icon={faCog} css={`align-self:end;`} />
+            </MenuItems>
         </StyledNavBar>
     )
 }
@@ -23,9 +34,7 @@ function MenuItem ({ icon, active, showBadge, ...rest }) {
     )
 }
 
-NavBar.propTypes = {
-    children: PropTypes.any
-}
+NavBar.propTypes = {}
 
 export default NavBar
 export { MenuItem }
