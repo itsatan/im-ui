@@ -8,7 +8,9 @@ const theme = {
     /** @description 红色 */
     red: '#F34848',
     /** @description 默认字体大小 14px */
-    normal:'1.4rem'
+    normal: '1.4rem',
+    /** @description 侧导航背景色 */
+    darkPurple:'#292F4C'
 }
 
 export default theme
