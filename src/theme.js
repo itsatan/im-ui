@@ -30,7 +30,13 @@ const theme = {
     /** @description xsmall 10px */
     xsmall: '1rem',
     /** @description xxsmall 8px */
-    xxsmall:'0.8rem',
+    xxsmall: '0.8rem',
+    /** @description 消息卡片默认背景颜色 */
+    background: 'white',
+    /** @description 非激活白色背景下*/
+    inactiveColor: 'rgba(41, 47, 76, 0.3)',
+    /** @description 非激活深色背景下 */
+    inactiveColorDark: 'white',
 }
 
 export default theme
