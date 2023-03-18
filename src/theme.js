@@ -13,6 +13,8 @@ const theme = {
     gray2: 'rgba(241, 237, 237, 0.3)',
     /** @description 占位符文字 Placeholder */
     gray3: 'rgba(24, 28, 47, 0.3)',
+    /** @description 边框颜色 */
+    gray4: '#EFECE8',
     /** @description 输入框文字 */
     grayDark: '#181C2F',
     /** @description 默认字体大小 14px */
