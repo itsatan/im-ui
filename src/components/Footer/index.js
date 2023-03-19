@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import StyledFooter, { IconContainer, StylePopoverContent } from './style'
 import Input from 'components/Input'
 import Icon from 'components/Icon'
@@ -63,8 +62,6 @@ function PopoverContent (props) {
     )
 }
 
-Footer.propTypes = {
-    children: PropTypes.any
-}
+Footer.propTypes = {}
 
 export default Footer
