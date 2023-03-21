@@ -1,6 +1,7 @@
 import React from 'react'
 import StyledProfile, { Album, AlbumSection, AlbumTitle, CloseIcon, ContactSection, Photo, SocialLinks } from './style'
 import "styled-components/macro"
+import PropTypes from 'prop-types'
 import Avatar from 'components/Avatar'
 import Paragraph from 'components/Paragraph'
 import Emoji from 'components/Emoji'
@@ -15,18 +16,38 @@ import photo3 from 'assets/images/photo3.jpg'
 import { faGithub, faLinkedin, faWeibo } from '@fortawesome/free-brands-svg-icons'
 
 import { ReactComponent as Cross } from 'assets/icons/cross.svg'
+import Button from 'components/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 
-function Profile ({ children, ...rest }) {
+function Profile ({ showEditButton, showCloseIcon = true, onEdit, status, children, ...rest }) {
     return (
         <StyledProfile {...rest}>
-            <CloseIcon icon={Cross} />
+            {showCloseIcon && <CloseIcon icon={Cross} />}
             <Avatar
-                css="margin:26px 0"
+                css={`
+                    margin:26px 0;
+                    grid-area:1 / 1 / 3 / 2;
+                `}
                 src={face}
                 size="160px"
-                status='online'
+                status={status}
                 statusIconSize='25px'
             />
+            {showEditButton && (
+                <Button
+                    size='52px'
+                    onClick={onEdit}
+                    css={`
+                        grid-area:1 / 1 / 3 / 2;
+                        align-self: end;
+                        margin-left: 100px;
+                        z-index: 10;
+                    `}
+                >
+                    <FontAwesomeIcon css="font-size:24px" icon={faPen} />
+                </Button>
+            )}
             <Paragraph size='xlarge' css="margin-bottom:12px">
                 慕容天宇
             </Paragraph>
@@ -73,6 +94,11 @@ function Description ({ label, children }) {
     )
 }
 
-Profile.propTypes = {}
+Profile.propTypes = {
+    showEditButton: PropTypes.bool,
+    showCloseIcon: PropTypes.bool,
+    onEdit: PropTypes.func,
+    status: PropTypes.string
+}
 
 export default Profile
