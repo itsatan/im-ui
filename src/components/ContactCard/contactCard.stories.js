@@ -2,7 +2,7 @@ import React from "react";
 import ContactCard from ".";
 
 export default {
-    title: "页面组件/ContactCard",
+    title: "UI组件/ContactCard",
     component: ContactCard
 };
 
