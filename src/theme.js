@@ -7,6 +7,8 @@ const theme = {
     gray: 'rgba(24, 28, 47, 0.2)',
     /** @description 红色 */
     red: '#F34848',
+    /** @description 挂断按钮红色 */
+    red2: 'rgba(236, 90, 81, 0.8)',
     /** @description 侧导航背景色 */
     darkPurple: '#292F4C',
     /** @description Input背景 */
@@ -19,6 +21,8 @@ const theme = {
     gray5: '#D8D8D8',
     /** @description 输入框文字 */
     grayDark: '#181C2F',
+    /** @description 其他按钮颜色 */
+    grayDark2: 'rgba(33, 33, 33, 0.58)',
     /** @description 默认字体大小 14px */
     normal: '1.4rem',
     /** @description 中等字体大小 16px */
