@@ -5,31 +5,38 @@ import Avatar from 'components/Avatar'
 import profileImage from 'assets/images/face-male-1.jpg'
 import { faCog, faCommentDots, faEllipsisH, faFolder, faStickyNote, faUsers } from '@fortawesome/free-solid-svg-icons'
 import "styled-components/macro"
+import { Link, matchPath, useLocation } from 'react-router-dom'
 
 function NavBar ({ ...rest }) {
     return (
         <StyledNavBar {...rest}>
             <Avatar src={profileImage} status="online" />
             <MenuItems>
-                <MenuItem showBadge active icon={faCommentDots} />
-                <MenuItem icon={faUsers} />
-                <MenuItem icon={faFolder} />
-                <MenuItem icon={faStickyNote} />
+                <MenuItem to='/' showBadge icon={faCommentDots} />
+                <MenuItem to='/contacts' icon={faUsers} />
+                <MenuItem to='files' icon={faFolder} />
+                <MenuItem to='/notes' icon={faStickyNote} />
                 <MenuItem icon={faEllipsisH} />
-                <MenuItem icon={faCog} css={`align-self:end;`} />
+                <MenuItem to='/settings' icon={faCog} css={`align-self:end;`} />
             </MenuItems>
         </StyledNavBar>
     )
 }
 
-function MenuItem ({ icon, active, showBadge, ...rest }) {
+function MenuItem ({ to = '#', icon, showBadge, ...rest }) {
+    const loc = useLocation()
+    const active = !!matchPath({
+        path: to,
+        end:true,
+    }, loc.pathname)
+    console.log(active,'active');
     return (
         <StyleMenuItem active={active} {...rest}>
-            <a href="https://www.baidu.com">
+            <Link to={to}>
                 <Badge show={showBadge}>
                     <MenuIcon active={active} icon={icon} />
                 </Badge>
-            </a>
+            </Link>
         </StyleMenuItem>
     )
 }
