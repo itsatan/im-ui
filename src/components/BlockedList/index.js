@@ -7,12 +7,14 @@ import 'styled-components/macro'
 import { ReactComponent as ArrowMenuLeft } from 'assets/icons/arrowMenuLeft.svg'
 import { ReactComponent as closeCircle } from "assets/icons/closeCircle.svg";
 import face from 'assets/images/face-male-1.jpg'
+import { useNavigate } from 'react-router-dom'
 
-function BlockedList ({children,...rest}) {
+function BlockedList ({ children, ...rest }) {
+    const navigate = useNavigate()
     return (
         <StyledBlockedList {...rest}>
             <SettingsMenu>
-                <Icon icon={ArrowMenuLeft} css={`cursor:pointer;`} />
+                <Icon icon={ArrowMenuLeft} css={`cursor:pointer;`} onClick={() => navigate(-1)} />
                 <Text size='xxlarge' >已屏蔽的好友</Text>
             </SettingsMenu>
             <FriendList>

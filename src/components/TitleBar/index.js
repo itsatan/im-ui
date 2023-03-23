@@ -15,6 +15,8 @@ import Seperator from 'components/Seperator'
 
 
 function TitleBar ({
+    onAvatarClick,
+    onVideoClick,
     avatarSrc,
     avatarStatus,
     userName,
@@ -24,7 +26,7 @@ function TitleBar ({
 }) {
     return (
         <StyledTitleBar {...rest}>
-            <Avatar src={avatarSrc} status={avatarStatus} />
+            <Avatar src={avatarSrc} status={avatarStatus} onClick={onAvatarClick} />
             <Title>
                 <Paragraph size='large'>{userName}</Paragraph>
                 <Paragraph type='secondary'>
@@ -33,7 +35,7 @@ function TitleBar ({
                 </Paragraph>
             </Title>
             <Actions>
-                <Icon opacity={0.3} icon={Call} />
+                <Icon opacity={0.3} icon={Call} onClick={onVideoClick} />
                 <Icon opacity={0.3} icon={Camera} />
                 <Dropdown content={
                     <>

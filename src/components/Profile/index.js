@@ -20,10 +20,10 @@ import Button from 'components/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 
-function Profile ({ showEditButton, showCloseIcon = true, onEdit, status, children, ...rest }) {
+function Profile ({ showEditButton, showCloseIcon = true, onEdit, status, children, onCloseClick, ...rest }) {
     return (
         <StyledProfile {...rest}>
-            {showCloseIcon && <CloseIcon icon={Cross} />}
+            {showCloseIcon && <CloseIcon icon={Cross} onClick={onCloseClick} />}
             <Avatar
                 css={`
                     margin:26px 0;

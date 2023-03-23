@@ -7,10 +7,12 @@ import Emoji from 'components/Emoji'
 import face3 from 'assets/images/face-male-3.jpg'
 import Footer from 'components/Footer'
 
-function Conversation ({ children, ...rest }) {
+function Conversation ({ children, onAvatarClick,onVideoClick, ...rest }) {
     return (
         <StyledConversation {...rest}>
             <TitleBar
+                onAvatarClick={onAvatarClick}
+                onVideoClick={onVideoClick}
                 avatarSrc={face3}
                 avatarStatus='online'
                 userName='慕容天宇'
