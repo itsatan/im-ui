@@ -23,6 +23,8 @@ const theme = {
     grayDark: '#181C2F',
     /** @description 其他按钮颜色 */
     grayDark2: 'rgba(33, 33, 33, 0.58)',
+    /** @description 渐变灰色 */
+    gradientGray: 'linear-gradient(119.19deg, #FFFFFF 0%, #F8F8F8 65.34%, #FFFFFF 100%)',
     /** @description 默认字体大小 14px */
     normal: '1.4rem',
     /** @description 中等字体大小 16px */
