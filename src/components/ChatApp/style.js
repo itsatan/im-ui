@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
     flex-shrink: 0;
+
+    z-index: 100;
+    position: relative;
 `;
 
 const Sidebar = styled.aside`
@@ -10,6 +13,14 @@ const Sidebar = styled.aside`
     height: 100vh;
     flex: 1;
     background: ${({ theme }) => theme.gradientGray};
+
+    position: relative;
+    z-index: 50;
+    > div {
+        will-change: transform,opacity;
+        position: absolute;
+        width: 100%;
+    }
 `;
 
 const Content = styled.main`

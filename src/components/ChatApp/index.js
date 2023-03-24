@@ -10,25 +10,39 @@ import Profile from 'components/Profile'
 import Settings from 'components/Settings'
 import VideoCall from 'components/VideoCall'
 import React, { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { useTransition } from 'react-spring'
 import StyledChatApp, { Content, Drawer, Nav, Sidebar } from './style'
+import {animated} from 'react-spring'
 
 function ChatApp ({ ...rest }) {
     const [showDrawer, setShowDrawer] = useState(false)
     const [videoCalling, setVideoCalling] = useState(false)
+    const location = useLocation()
+    // params1 监听某个参数变化
+    // params2 动画效果配置
+    const transitions = useTransition(location, {
+        form: { opacity: 0, transform: 'translate3d(-100px ,0 ,0)' },
+        enter: { opacity: 1, transform: 'translate3d(0 ,0 ,0)' },
+        leave: { opacity: 0, transform: 'translate3d(-100px ,0 ,1)' },
+    })
     return (
         <StyledChatApp {...rest}>
             <Nav>
                 <NavBar />
             </Nav>
             <Sidebar>
-                <Routes>
-                    <Route path='/' element={<MessageList />}/>
-                    <Route path='/contacts' element={<ContactList />} />
-                    <Route path='/files' element={<FileList />} />
-                    <Route path='/notes' element={<NoteList />} />
-                    <Route path='/settings/*' element={<EditProfile />} />
-                </Routes>
+                {transitions(({ item, props }) => (
+                    <animated.div style={props}>
+                        <Routes location={item}>
+                            <Route path='/' element={<MessageList />} />
+                            <Route path='/contacts' element={<ContactList />} />
+                            <Route path='/files' element={<FileList />} />
+                            <Route path='/notes' element={<NoteList />} />
+                            <Route path='/settings/*' element={<EditProfile />} />
+                        </Routes>
+                    </animated.div>
+                ))}
             </Sidebar>
             <Content>
                 {videoCalling && <VideoCall onHangOffClicked={() => setVideoCalling(false)} />}
