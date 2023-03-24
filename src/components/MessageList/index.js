@@ -4,19 +4,11 @@ import MessageCard from 'components/MessageCard'
 
 import face1 from 'assets/images/face-male-1.jpg'
 import FilterList from 'components/FilterList'
-import { useTrail, animated } from 'react-spring'
+import { animated } from 'react-spring'
+import useStaggeredList from 'hooks/useStaggeredList'
 
 function MessageList ({ ...rest }) {
-    const trailAnimes = useTrail(6, {
-        transform: "translate3d(0px, 0px, 0px)",
-        from: { transform: "translate3d(-50px, 0px, 0px)" },
-        config: {
-            mass: 0.8,
-            tension: 280,
-            friction: 20,
-        },
-        delay: 100,
-    });
+    const trailAnimes = useStaggeredList(6)
     return (
         <StyledMessageList {...rest}>
             <FilterList options={['最新消息优先', '在线好友优先']} actionLabel='创建会话'>
