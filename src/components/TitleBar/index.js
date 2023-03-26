@@ -15,6 +15,8 @@ import Seperator from 'components/Seperator'
 
 
 function TitleBar ({
+    animeProps,
+    style,
     onAvatarClick,
     onVideoClick,
     avatarSrc,
@@ -25,7 +27,7 @@ function TitleBar ({
     ...rest
 }) {
     return (
-        <StyledTitleBar {...rest}>
+        <StyledTitleBar style={{ ...style, ...animeProps }} {...rest}>
             <Avatar src={avatarSrc} status={avatarStatus} onClick={onAvatarClick} />
             <Title>
                 <Paragraph size='large'>{userName}</Paragraph>

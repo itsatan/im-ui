@@ -13,11 +13,11 @@ import { ReactComponent as MicrophoneIcon } from 'assets/icons/microphone.svg'
 import { ReactComponent as PlaneIcon } from 'assets/icons/plane.svg'
 import { ReactComponent as OptionsIcon } from "assets/icons/options.svg"
 
-function Footer ({ children, ...rest }) {
+function Footer ({ animeProps, style, children, ...rest }) {
     const [emojiIconActive, setEmojiIconActive] = useState(false)
     const theme = useTheme()
     return (
-        <StyledFooter {...rest}>
+        <StyledFooter style={{ ...style, ...animeProps }} {...rest}>
             <Input
                 placeholder='请输入想和对方说的话...'
                 prefix={<Icon icon={ClipIcon} />}
