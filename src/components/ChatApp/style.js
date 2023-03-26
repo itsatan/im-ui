@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Nav = styled.nav`
     flex-shrink: 0;
@@ -30,7 +30,15 @@ const Content = styled.main`
 
 const Drawer = styled.div`
     max-width: 310px;
-    width: ${({ show }) => show ? '310px' : '0px'}
+    width: 0;
+    transform:translateX(200px);
+    transition: transform .4s;
+    will-change: width, transform ;
+
+    ${({ show }) => show && css`
+        width: initial;
+        transform: translateX(0px);
+    ` }
 `;
 
 const StyledChatApp = styled.div`
