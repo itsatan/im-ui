@@ -6,8 +6,9 @@ import 'styled-components/macro'
 
 import { ReactComponent as ArrowMenuLeft } from 'assets/icons/arrowMenuLeft.svg'
 import { ReactComponent as closeCircle } from "assets/icons/closeCircle.svg";
-import face from 'assets/images/face-male-1.jpg'
 import { useNavigate } from 'react-router-dom'
+
+import blockedData from 'data/blocked'
 
 function BlockedList ({ children, ...rest }) {
     const navigate = useNavigate()
@@ -18,12 +19,12 @@ function BlockedList ({ children, ...rest }) {
                 <Text size='xxlarge' >已屏蔽的好友</Text>
             </SettingsMenu>
             <FriendList>
-                {new Array(8).fill(0).map((_, i) => {
+                {blockedData.map((user, i) => {
                     return (
-                        <ClosableAvatar key={i}>
-                            <BlockedAvatar size="105px" src={face} />
+                        <ClosableAvatar key={user.id}>
+                            <BlockedAvatar size="105px" src={user.avatar} />
                             <CloseIcon width={46} height={51} icon={closeCircle} />
-                            <BlockedName>李浩</BlockedName>
+                            <BlockedName>{user.name}</BlockedName>
                         </ClosableAvatar>
                     )
                 })}

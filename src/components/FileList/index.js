@@ -5,15 +5,17 @@ import StyledFileList, { Files } from './style'
 import useStaggeredList from 'hooks/useStaggeredList'
 import { animated } from 'react-spring'
 
+import filesData from 'data/files'
+
 function FileList ({ children, ...rest }) {
     const trailAnimes = useStaggeredList(10)
     return (
         <StyledFileList {...rest}>
             <FilterList options={['最新文件优先', '按文件名排序']}>
                 <Files>
-                    {new Array(10).fill(0).map((_, i) => (
-                        <animated.div key={i} style={trailAnimes[i]}>
-                            <FileCard key={i} />
+                    {filesData.map((file, i) => (
+                        <animated.div key={file.id} style={trailAnimes[i]}>
+                            <FileCard key={file.id} file={file} />
                         </animated.div>
                     ))}
                 </Files>

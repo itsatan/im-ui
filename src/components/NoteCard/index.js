@@ -1,15 +1,13 @@
 import React from 'react'
 import StyledNoteCard, { NoteExcerpt, NoteTitle, NoteImage, NotePublishTime } from './style'
 
-import note1 from 'assets/images/note-1.jpg'
-
-function NoteCard ({...rest}) {
+function NoteCard ({ note, ...rest }) {
     return (
         <StyledNoteCard {...rest}>
-            <NoteImage src={note1} alt='' />
-            <NoteTitle>学习英语笔记</NoteTitle>
-            <NoteExcerpt>Hello everyone! This is my first note!</NoteExcerpt>
-            <NotePublishTime>3小时之前</NotePublishTime>
+            <NoteImage src={note.image} alt='' />
+            <NoteTitle>{note.title}</NoteTitle>
+            <NoteExcerpt>{note.excerpt}</NoteExcerpt>
+            <NotePublishTime>{note.publishedAt}</NotePublishTime>
         </StyledNoteCard>
     )
 }
